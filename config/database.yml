@@ -1,0 +1,13 @@
+default: &default
+  adapter: sqlite3
+  encoding: utf8
+  pool: 5
+
+development:
+  <<: *default
+  database: grape_bootstrap_development
+
+test:
+  <<: *default
+  database: grape_bootstrap_test
+
