@@ -15,7 +15,7 @@ def import_active_record_tasks(default_rake_app)
 
   include ActiveRecord::Tasks
 
-  db_dir                               = File.expand_path('../../../db', __FILE__)
+  db_dir                               = File.expand_path('../../db', __dir__)
   db_config_path                       = File.expand_path('config/database.yml')
   migrations_path                      = "#{db_dir}/migrate"
   environment                          = ENV['RACK_ENV'] || 'development'
@@ -38,9 +38,9 @@ def import_active_record_tasks(default_rake_app)
   end
 
   tasks_to_import = %w[db:create db:drop db:purge db:rollback db:migrate
-    db:migrate:up db:migrate:down db:migrate:status db:version db:schema:load db:schema:dump]
+                       db:migrate:up db:migrate:down db:migrate:status db:version db:schema:load db:schema:dump]
 
-  imported_tasks   = Rake.application.tasks.select do |task|
+  imported_tasks = Rake.application.tasks.select do |task|
     tasks_to_import.include?(task.name)
   end
 
