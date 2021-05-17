@@ -2,6 +2,8 @@ default: &default
   adapter: sqlite3
   encoding: utf8
   pool: 5
+  user: user
+  staff: staff
 
 development:
   <<: *default
@@ -9,5 +11,5 @@ development:
 
 test:
   <<: *default
-  database: grape_bootstrap_test
+  database: grape_bootstrap_development
 

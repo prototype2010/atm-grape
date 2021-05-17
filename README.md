@@ -1,23 +1,16 @@
-# Grape Bootstrap
-
+# Grape ATM 
 ## Introduction
 
-Bootstrap Grape application for REST APIS with ActiveRecord, RSpec and Swagger integration
+ATM using grape framework 
 
 ## Dependencies
 
-- Ruby 2.3.4
-- MySQL
+- Ruby 2.7.2
+- SQLite 3 
 
 ## Installation
 
 - Clone poject
-- Run the script:
-
- ```shell
- $ bin/setup
- ```
-
 - Run bundler:
 
  ```shell
@@ -27,38 +20,14 @@ Bootstrap Grape application for REST APIS with ActiveRecord, RSpec and Swagger i
 - Create database and run migrations:
 
  ```shell
- $ bundle exec rake db:create db:migrate
+ $ bundle exec rake db:migrate
  ```
 
 - Run application:
 
  ```shell
- $ rackup -p 3000
+ $ rackup
  ```
-
-## Docker
-
-To run application on docker:
-
-- Install Docker and Docker-Compose
-- Clone the project
-- Run these commands on project root:
-
-```shell
-$ docker-compose build
-$ docker-compose up
-
-# Open another terminal and run:
-$ docker-compose run web bundle exec rake db:create db:migrate
-```
-
-## Console
-
-To use console, run the following command:
-
-```shell
-$ bin/console
-```
 
 ## Tests
 
@@ -75,19 +44,3 @@ To show the application routes, run the following command:
 ```shell
 $ bundle exec rake routes
 ```
-
-## Swagger Documentation
-
-To access swagger documentation, enter the root application address in the browser:
-
-```shell
-http://localhost:3000
-```
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/Oliveirakun/grape-bootstrap.
-
-## License
-
-The software is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).

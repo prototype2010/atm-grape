@@ -12,13 +12,13 @@ class Log
     apply_formatter
   end
 
-  %w{debug info warn error}.each do |level|
+  %w[debug info warn error].each do |level|
     define_method(level) { |msg| @logger.send(level, msg) }
   end
 
   def log_request(level, env, status)
-    msg =  "#{env['REQUEST_METHOD']} #{env['REQUEST_URI']} #{env['HTTP_VERSION']} #{status}"
-    log = self.method(level)
+    msg = "#{env['REQUEST_METHOD']} #{env['REQUEST_URI']} #{env['HTTP_VERSION']} #{status}"
+    log = method(level)
     log.call(msg)
   end
 
@@ -37,7 +37,7 @@ class Log
   end
 
   def apply_formatter
-    @logger.formatter = -> (severity, time, progname, msg) {
+    @logger.formatter = lambda { |severity, time, progname, msg|
       "#{time.strftime '%FT%T%:z'} [#{severity}] [#{@hostname}] [#{progname || @appname}] [#{@pid}] #{msg}\n"
     }
   end

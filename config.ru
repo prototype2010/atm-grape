@@ -1,8 +1,6 @@
-require_relative './api/base'
-require_relative './middleware/auth_service_user'
+require_relative './initializer'
 
-require File.expand_path('../config/environment', __FILE__)
-ActiveRecord::Base.establish_connection
+require File.expand_path('config/environment', __dir__)
+ActiveRecord::Base.establish_connection(DB_CONFIG)
 
-Twitter::API.compile!
-run Twitter::API
+run ATM::API

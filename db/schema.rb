@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2017_01_26_191400) do
+ActiveRecord::Schema.define(version: 2017_01_26_191401) do
 
-  create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.string "color"
-    t.string "sku"
+  create_table "notes", force: :cascade do |t|
+    t.integer "note"
+    t.integer "amount", default: 0, null: false
   end
 
 end
